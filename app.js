@@ -9,6 +9,8 @@ var db_uri = "mongodb://localhost/eazy365", // Database URL for connection
 
 var command_interval = 5 * 1000 // Interval to check for pending commands
 
+var PORT = process.env.PORT || 8888;
+
 /*
  * Cleans the input of carriage return, newline
  */
@@ -112,8 +114,8 @@ var server = net.createServer(newSocket);
  	
 
 // Listen on port 8888
-server.listen(8888);
-console.log("Server started on port 8888");
+server.listen(PORT);
+console.log("Server started on port", PORT);
 
 // Loop function to check for pending commands
 setInterval(function() {
